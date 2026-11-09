@@ -1,0 +1,14 @@
+.app-footer {
+  background: var(--footer-bg);
+  border-top: 1px solid var(--footer-border);
+  padding: 12px 0;
+  text-align: center;
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  color: var(--footer-text);
+  font-size: 14px;
+}

@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Secrets (keep .env.example files)
+.env
+.env.*
+!.env.example
+
+# IDE settings (may contain database connection details)
+.idea/
+.vscode/
+
+# Build output and logs
+dist/
+build/
+*.log
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# OS files
+.DS_Store
+Thumbs.db

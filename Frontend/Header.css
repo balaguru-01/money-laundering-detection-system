@@ -1,0 +1,222 @@
+/* ================= ROOT VARIABLES ================= */
+:root {
+  --bg-1: #0f2027;
+  --bg-2: #203a43;
+  --bg-3: #2c5364;
+  --primary: #2c5364;
+  --accent: #dcc40e;
+  --muted: #b0d4ff;
+  --glass: rgba(255, 255, 255, 0.08);
+  --radius: 12px;
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  font-family: "Segoe UI", Trebuchet MS, sans-serif;
+}
+
+/* Alternate theme: sunset */
+:root[data-theme='sunset'] {
+  --bg-1: #4a1d2a;
+  --bg-2: #6d293c;
+  --bg-3: #8f3a4d;
+  --primary: #b23a48;
+  --accent: #ffb86b;
+  --muted: #ffd7ba;
+  --glass: rgba(255, 255, 255, 0.12);
+}
+
+/* ================= HEADER ================= */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 120;
+  background: linear-gradient(135deg, var(--bg-1), var(--bg-2), var(--bg-3));
+  backdrop-filter: blur(10px) saturate(130%);
+  -webkit-backdrop-filter: blur(10px) saturate(130%);
+  box-shadow: var(--shadow), 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* ================= HEADER CONTAINER ================= */
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 18px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+/* ================= BRAND ================= */
+.header-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-title a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #ffffff, #b0d4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+/* Brand Accent Box */
+.header-title a::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #ffed4e, #ffd700);
+  box-shadow: 0 4px 16px rgba(255, 237, 78, 0.35);
+}
+
+.header-title a:hover {
+  filter: brightness(1.1);
+}
+
+/* ================= NAVBAR ================= */
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--glass);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #eaf4ff;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.theme-toggle:hover {
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.06);
+}
+
+.theme-toggle:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(255, 237, 78, 0.18);
+}
+
+/* Nav Links */
+.header-nav a {
+  position: relative;
+  color: rgba(234, 244, 255, 0.95);
+  text-decoration: none;
+  padding: 6px 10px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Animated underline */
+.header-nav a::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 3px;
+  height: 3px;
+  background: transparent;
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s ease;
+}
+
+.header-nav a:hover {
+  color: #ffed4e;
+}
+
+.header-nav a:hover::after {
+  transform: scaleX(1);
+  background: linear-gradient(90deg, #ffed4e, #ffd700);
+}
+
+.header-nav a:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(255, 237, 78, 0.15);
+}
+
+/* ================= HAMBURGER (MOBILE) ================= */
+.menu-toggle {
+  display: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--glass);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 18px;
+  height: 2px;
+  background: #eaf4ff;
+  position: relative;
+}
+
+.menu-toggle span::before,
+.menu-toggle span::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 2px;
+  background: #eaf4ff;
+  left: 0;
+}
+
+.menu-toggle span::before {
+  top: -6px;
+}
+
+.menu-toggle span::after {
+  top: 6px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 880px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .header-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: linear-gradient(180deg, var(--bg-2), var(--bg-1));
+    flex-direction: column;
+    padding: 12px;
+    gap: 6px;
+    display: none;
+    box-shadow: var(--shadow);
+  }
+
+  .header-nav.active {
+    display: flex;
+  }
+
+  .header-nav a {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+  }
+}

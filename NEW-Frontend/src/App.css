@@ -1,0 +1,141 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+  color: var(--light);
+}
+
+.app-header {
+  background: linear-gradient(135deg, #1a1f3a 0%, #242e4d 100%);
+  border-bottom: 2px solid rgba(0, 212, 255, 0.3);
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-content h1 {
+  font-size: 28px;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.app-subtitle {
+  color: var(--muted);
+  font-size: 14px;
+  font-style: italic;
+}
+
+.header-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.status-indicator.online {
+  background: #00ff88;
+  box-shadow: 0 0 10px #00ff88;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 10px currentColor;
+  }
+  50% {
+    box-shadow: 0 0 20px currentColor;
+  }
+  100% {
+    box-shadow: 0 0 10px currentColor;
+  }
+}
+
+.status-text {
+  color: #00ff88;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.app-nav {
+  background: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+  padding: 12px 24px;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  flex-wrap: wrap;
+}
+
+.nav-btn {
+  padding: 10px 16px;
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 6px;
+  color: var(--light);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.nav-btn:hover {
+  background: rgba(0, 212, 255, 0.2);
+  border-color: var(--primary);
+}
+
+.nav-btn.active {
+  background: var(--primary);
+  color: var(--dark);
+  border-color: var(--primary);
+}
+
+.app-main {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.app-footer {
+  background: rgba(0, 0, 0, 0.3);
+  border-top: 1px solid rgba(0, 212, 255, 0.2);
+  padding: 16px 24px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.footer-content p {
+  margin: 4px 0;
+}
+
+@media (max-width: 768px) {
+  .app-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .header-content h1 {
+    font-size: 20px;
+  }
+
+  .app-nav {
+    padding: 8px 16px;
+  }
+
+  .nav-btn {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .app-main {
+    padding: 16px;
+  }
+}
